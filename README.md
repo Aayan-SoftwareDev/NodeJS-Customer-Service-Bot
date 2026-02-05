@@ -2,7 +2,6 @@
 <h1>Customer Service RAG Agent</h1>
 
 <div class="section">
-  <h2>About</h2>
   <p>
     The <strong>Customer Service RAG Agent</strong> is an AI-powered customer support system built using a
     Retrieval-Augmented Generation (RAG) architecture.
@@ -69,7 +68,7 @@
     <li><code>OPENAI_API_KEY</code></li>
     <li><code>PINECONE_API_KEY</code></li>
     <li><code>BREVO_API_KEY</code></li>
-    <li><code>PINECONE_INDEX</code></li>
+    <li><code>PORT</code></li>
   </ul>
 </div>
 
