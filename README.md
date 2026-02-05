@@ -1,30 +1,3 @@
-<head>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1, h2 {
-      color: #111;
-    }
-    code {
-      background: #f4f4f4;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-    ul {
-      margin-left: 20px;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-  </style>
-</head>
-
-<body>
 
 <h1>Customer Service RAG Agent</h1>
 
@@ -104,6 +77,3 @@
   <h2>License</h2>
   <p>MIT</p>
 </div>
-
-</body>
-</html>
