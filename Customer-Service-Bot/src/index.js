@@ -8,6 +8,7 @@ dotenv.config();
 
 app.use(express.json());
 
+// mailtrap will send POST req when email on the redirect email will be received
 app.post("/webhook/email", email_webhook);
 
 app.listen(process.env.PORT, () => {
