@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Customer Service RAG Agent</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -73,14 +69,14 @@
 
 <div class="section">
   <h2>How It Works</h2>
-  <ol>
+  <ul>
     <li>Customer sends an email or query.</li>
     <li>The backend receives the message.</li>
     <li>Relevant documents are retrieved from Pinecone.</li>
     <li>Context + question are sent to OpenAI.</li>
     <li>AI generates a response.</li>
     <li>The reply is sent back to the customer via Brevo.</li>
-  </ol>
+  </ul>
 </div>
 
 <div class="section">
