@@ -17,7 +17,7 @@ const email_webhook = async (req, res) => {
     const email = req.body;
     if(!email){
         console.log("no body");
-        return res.json({message:"no vody"}).status(400);
+        return res.json({message:"no body"}).status(400);
     }
     const customerEmail = email.envelope.from;
     const message = email.plain;
@@ -28,18 +28,18 @@ const email_webhook = async (req, res) => {
         model: "o4-mini",
         messages: [{
             role: "system",
-            content: `You are a customer support agent for Ilmify Robo Team. Your task is to provide a clear, respectful, and helpful response to the customer's question. You are given the question and relevant context that can help you answer it. 
+            content: `You are a customer support agent. Your task is to provide a clear, respectful, and helpful response to the customer's question. You are given the question and relevant context that can help you answer it. 
 
 - Use the context to answer accurately and fully.
 - Dont make anything from yourself, use the context and valid info.
-- The official link to order any book on website is: ilmify.store.
-- The official number for human support is: 03149890680.
+- The official link to order any book on website is: domain.store.
+- The official number for human support is: phone_number.
 - Don't give any invalid info to the user.
 - Strictly Use Context.
-- If their questions answer is not in the context give human support number: 03149890680. 
+- If their questions answer is not in the context give human support number: phone_number. 
 - Write the response in **HTML format**, ready to be sent as an email.
 - Be polite, professional, and supportive.
-- Include a greeting and closing signature from the Ilmify Robo Team.
+- Include a greeting and closing signature from the Company Robo Team.
 
 CONTEXT: ${context}
 QUESTION: ${message}
@@ -51,7 +51,7 @@ QUESTION: ${message}
     const sendSmptEmail = new SendSmtpEmail();
     sendSmptEmail.subject = "Customer Service";
     sendSmptEmail.htmlContent = email_response_body;
-    sendSmptEmail.sender = {name: "Ilmify Support", email: "support@ilmify.store"};
+    sendSmptEmail.sender = {name: "Customer Support", email: "support@domain.com"};
     sendSmptEmail.to = [{email: customerEmail}];
     try {
         await emailApiInstance.sendTransacEmail(sendSmptEmail);
@@ -65,10 +65,4 @@ QUESTION: ${message}
 
 module.exports = {
     email_webhook,
-
 };
-
-
-
-
-
