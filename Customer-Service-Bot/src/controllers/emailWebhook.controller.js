@@ -7,6 +7,7 @@ const {
       SendSmtpEmail
     } = require("@getbrevo/brevo");
 
+// load env variables
 dotenv.config();
 
 const opneai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
@@ -16,9 +17,10 @@ emailApiInstance.setApiKey(TransactionalEmailsApiApiKeys.apiKey, process.env.BRE
 const email_webhook = async (req, res) => {
     const email = req.body;
     if(!email){
-        console.log("no body");
         return res.json({message:"no body"}).status(400);
     }
+
+    // the request from mailtrap and will provide these things in body
     const customerEmail = email.envelope.from;
     const message = email.plain;
 
@@ -53,9 +55,9 @@ QUESTION: ${message}
     sendSmptEmail.htmlContent = email_response_body;
     sendSmptEmail.sender = {name: "Customer Support", email: "support@domain.com"};
     sendSmptEmail.to = [{email: customerEmail}];
+    
     try {
         await emailApiInstance.sendTransacEmail(sendSmptEmail);
-        console.log("Email Response sent successfully!");
         res.status(200).json({message:"email sent"});
     } catch(e) {
         console.log(`An error occurred!`, e);
@@ -66,3 +68,4 @@ QUESTION: ${message}
 module.exports = {
     email_webhook,
 };
+
