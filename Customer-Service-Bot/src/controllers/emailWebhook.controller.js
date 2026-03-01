@@ -17,7 +17,7 @@ emailApiInstance.setApiKey(TransactionalEmailsApiApiKeys.apiKey, process.env.BRE
 const email_webhook = async (req, res) => {
     const email = req.body;
     if(!email){
-        return res.json({message:"no body"}).status(400);
+        return res.status(400).json("Invalid request!");
     }
 
     // the request from mailtrap and will provide these things in body
@@ -34,11 +34,9 @@ const email_webhook = async (req, res) => {
 
 - Use the context to answer accurately and fully.
 - Dont make anything from yourself, use the context and valid info.
-- The official link to order any book on website is: domain.store.
-- The official number for human support is: phone_number.
 - Don't give any invalid info to the user.
 - Strictly Use Context.
-- If their questions answer is not in the context give human support number: phone_number. 
+- If their questions answer is not in the context give human support number. 
 - Write the response in **HTML format**, ready to be sent as an email.
 - Be polite, professional, and supportive.
 - Include a greeting and closing signature from the Company Robo Team.
@@ -68,4 +66,11 @@ QUESTION: ${message}
 module.exports = {
     email_webhook,
 };
+
+
+
+module.exports = {
+    email_webhook,
+};
+
 
